@@ -168,6 +168,69 @@
     .drink-settings-grid label{font-size:11px;color:var(--muted)}
     .drink-settings-grid input{margin-top:4px}
 
+
+    .dialysis-banner{display:none;margin:12px 0 0;padding:11px 14px;border:1px solid #cfeaf7;border-radius:18px;background:linear-gradient(180deg,#f7fcff,#eef9ff);color:#258fbe;font-size:13px;font-weight:800;align-items:center;justify-content:space-between;gap:10px;box-shadow:var(--shadow-soft)}
+    .dialysis-banner.show{display:flex}
+    .dialysis-banner small{font-size:10px;color:var(--muted);font-weight:600}
+    .weight-panel{display:grid;gap:12px}
+    .weight-fields{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+    .weight-fields.one{grid-template-columns:1fr}
+    .weight-field{font-size:12px;color:var(--muted)}
+    .weight-field input{width:100%;margin-top:5px;border:1px solid var(--line);border-radius:14px;padding:11px;background:#fbfdff}
+    .weight-result{display:none;border-radius:16px;background:#f4fbff;border:1px solid #d8eef8;padding:11px 12px;font-size:12px;line-height:1.65;color:#456174}
+    .weight-result.show{display:block}
+    .weight-result strong{color:#178fc8;font-size:14px}
+    .weight-help{font-size:11px;color:var(--muted);line-height:1.55}
+    .schedule-settings{margin-top:6px;padding-top:12px;border-top:1px solid var(--line)}
+    .data-settings{margin-top:6px;padding-top:12px;border-top:1px solid var(--line)}
+    .data-settings-title{font-size:14px;font-weight:800;color:var(--ink)}
+    .data-settings-sub{font-size:11px;color:var(--muted);margin:3px 0 9px;line-height:1.55}
+    .data-buttons{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .data-btn{border:1px solid var(--line);background:white;border-radius:13px;padding:10px 8px;font-size:12px;font-weight:800;color:#367c9e}
+    .data-btn:active{transform:scale(.98)}
+    #importBackupBtn{grid-column:1/-1}
+    .export-note{font-size:10px;color:var(--muted);margin-top:7px;line-height:1.5}
+    .schedule-settings-title{font-size:14px;font-weight:800;color:var(--ink)}
+    .schedule-settings-sub{font-size:11px;color:var(--muted);margin:3px 0 8px}
+    .schedule-select{width:100%;border:1px solid var(--line);border-radius:13px;padding:10px;background:white;color:var(--ink)}
+
+
+    .month-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+    .month-nav{display:flex;align-items:center;gap:8px}
+    .month-nav button{
+      width:34px;height:30px;border:1px solid var(--line);border-radius:12px;background:white;
+      color:#2b90c3;font-size:18px;line-height:1;box-shadow:0 3px 10px rgba(62,146,190,.08)
+    }
+    .month-nav button:disabled{opacity:.28}
+    .month-title{font-size:15px;font-weight:800;color:var(--ink);min-width:92px;text-align:center}
+    .month-weekdays,.month-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+    .month-weekdays{margin-bottom:6px}
+    .month-weekdays div{text-align:center;font-size:10px;color:var(--muted)}
+    .month-day{
+      min-height:62px;border:1px solid #e3eff5;border-radius:14px;background:#fbfdff;
+      padding:6px 5px;display:flex;flex-direction:column;justify-content:space-between;
+      text-align:left;color:var(--ink)
+    }
+    button.month-day{font:inherit;cursor:pointer}
+    .month-day.empty{border-color:transparent;background:transparent}
+    .month-day.future{opacity:.38}
+    .month-day.selected{border-color:#83d2f1;background:#effaff;box-shadow:inset 0 0 0 1px #b7e5f7}
+    .month-date{font-size:10px;color:var(--muted);font-weight:700}
+    .month-amount{font-size:12px;font-weight:850;color:#239fd8;white-space:nowrap;letter-spacing:-.02em}
+    .month-none{font-size:10px;color:#c1cbd1}
+    .month-note{margin-top:10px;font-size:10px;color:var(--muted);line-height:1.5}
+
+
+    .weight-saved{min-height:18px;font-size:11px;color:#2b9ecb;font-weight:750;opacity:0;transition:opacity .2s}
+    .weight-saved.show{opacity:1}
+    .weight-history{border-top:1px solid var(--line);padding-top:11px}
+    .weight-history-title{font-size:12px;font-weight:850;color:var(--ink);margin-bottom:7px}
+    .weight-history-list{display:grid;gap:6px}
+    .weight-history-row{display:grid;grid-template-columns:50px 1fr;gap:8px;font-size:11px;line-height:1.55}
+    .weight-history-date{color:var(--muted);font-weight:750}
+    .weight-history-values{color:#456174}.weight-history-values b{color:var(--ink)}
+    .calendar-pre{font-size:9px;color:#627e8d;white-space:nowrap;margin-top:2px}
+    .calendar-pre.editable{color:#299fce;font-weight:750}
     @media(max-width:420px){
       .app{padding-left:12px;padding-right:12px}
       .grid{grid-template-columns:repeat(4,1fr);gap:6px}
@@ -209,6 +272,11 @@
     <div class="hero-note" id="heroNote">1日の水分は800mLまでを目安に</div>
   </div>
 
+  <div class="dialysis-banner" id="dialysisBanner">
+    <span>💧 <span id="dialysisBannerText">今日は透析日です</span></span>
+    <small id="dialysisShiftText"></small>
+  </div>
+
   <section>
     <div class="section-head">
       <div><h2>飲んだものを選ぶ</h2><div class="sub">タップするだけで記録</div></div>
@@ -237,6 +305,38 @@
 
   <section>
     <div class="section-head">
+      <div><h2>体重メモ</h2><div class="sub">測ったときだけ、気軽に記録</div></div>
+    </div>
+    <div class="panel weight-panel">
+      <div>
+        <strong id="weightDayLabel">今日の体重</strong>
+        <div class="sub" id="weightModeText"></div>
+      </div>
+      <div class="weight-fields" id="dialysisWeightFields">
+        <label class="weight-field">透析前（kg）
+          <input id="preWeightInput" type="number" inputmode="decimal" step="0.1" placeholder="例 55.6">
+        </label>
+        <label class="weight-field">透析後（kg）
+          <input id="postWeightInput" type="number" inputmode="decimal" step="0.1" placeholder="例 54.2">
+        </label>
+      </div>
+      <div class="weight-fields one" id="homeWeightFields">
+        <label class="weight-field">自宅体重（kg）
+          <input id="homeWeightInput" type="number" inputmode="decimal" step="0.1" placeholder="測ったときだけ">
+        </label>
+      </div>
+      <div class="weight-saved" id="weightSaved">✓ 記録しました</div>
+      <div class="weight-result" id="weightResult"></div>
+      <div class="weight-history">
+        <div class="weight-history-title">最近の体重記録</div>
+        <div class="weight-history-list" id="weightHistoryList"></div>
+      </div>
+      <div class="weight-help">未入力の日があっても大丈夫。体重は、水分のとり方を振り返るための参考として使えます。</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
       <div><h2>7日間の記録</h2><div class="sub">毎日の水分量をそのまま見る</div></div>
     </div>
     <div class="panel">
@@ -245,6 +345,27 @@
         <div class="limit-label" id="limitLabel">800mLまでの目安</div>
         <div class="bars" id="bars"></div>
       </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel">
+      <div class="month-head">
+        <div>
+          <h2>月の記録</h2>
+          <div class="sub">1日ごとの水分摂取量</div>
+        </div>
+        <div class="month-nav">
+          <button type="button" id="prevMonth" aria-label="前の月">‹</button>
+          <div class="month-title" id="monthTitle"></div>
+          <button type="button" id="nextMonth" aria-label="次の月">›</button>
+        </div>
+      </div>
+      <div class="month-weekdays">
+        <div>日</div><div>月</div><div>火</div><div>水</div><div>木</div><div>金</div><div>土</div>
+      </div>
+      <div class="month-grid" id="monthGrid"></div>
+      <div class="month-note">記録がない日は空欄のまま表示します。今日以前の日付をタップすると、その日の水分・体重を確認、入力できます。</div>
     </div>
   </section>
 
@@ -265,6 +386,16 @@
       <label>1日の水分目安（mLまで）
         <input id="limitInput" type="number" inputmode="numeric" value="800" step="50">
       </label>
+      <div class="schedule-settings">
+        <div class="schedule-settings-title">透析スケジュール</div>
+        <div class="schedule-settings-sub">最初に1回選ぶと、透析日を自動で表示します</div>
+        <select id="dialysisSchedule" class="schedule-select">
+          <option value="">選択してください</option>
+          <option value="MWF_AM">月・水・金 AM</option>
+          <option value="MWF_PM">月・水・金 PM</option>
+          <option value="TTS">火・木・土</option>
+        </select>
+      </div>
       <div class="drink-settings">
         <div class="drink-settings-title">いつもの量</div>
         <div class="drink-settings-sub">普段使うコップやマグに合わせて変更できます</div>
@@ -277,6 +408,17 @@
           <label>ペットボトル<input class="drink-amount-input" data-drink-id="bottle" type="number" inputmode="numeric" min="1" step="10"></label>
           <label>汁物<input class="drink-amount-input" data-drink-id="soup" type="number" inputmode="numeric" min="1" step="10"></label>
         </div>
+      </div>
+      <div class="data-settings">
+        <div class="data-settings-title">データ管理</div>
+        <div class="data-settings-sub">記録を端末の外に保存できます。CSVは表計算ソフトで確認できます。</div>
+        <div class="data-buttons">
+          <button type="button" class="data-btn" id="exportCsvBtn">CSVを書き出す</button>
+          <button type="button" class="data-btn" id="exportBackupBtn">バックアップ</button>
+          <button type="button" class="data-btn" id="importBackupBtn">バックアップを読み込む</button>
+        </div>
+        <input id="importBackupFile" type="file" accept=".json,application/json" hidden>
+        <div class="export-note">氏名などの個人情報は含みません。バックアップには、設定・水分記録・体重記録が含まれます。読み込み時は現在の記録を置き換える前に確認します。</div>
       </div>
     </div>
   </details>
@@ -304,7 +446,8 @@ function getDrinks(){
 
 const LS = {
   settings:'aimizu-settings-v1',
-  entries:'aimizu-entries-v1'
+  entries:'aimizu-entries-v1',
+  weights:'aimizu-weights-v1'
 };
 
 let settings = JSON.parse(localStorage.getItem(LS.settings) || '{"dw":54,"limit":800}');
@@ -319,7 +462,9 @@ if(!settings.drinkAmounts){
     soup:150
   };
 }
+if(!('dialysisSchedule' in settings)) settings.dialysisSchedule='';
 let allEntries = JSON.parse(localStorage.getItem(LS.entries) || '[]');
+let weightEntries = JSON.parse(localStorage.getItem(LS.weights) || '[]');
 let lastDeleted = null;
 
 const pad = n => String(n).padStart(2,'0');
@@ -329,10 +474,118 @@ realToday.setHours(12,0,0,0);
 const todayKey = dateKey(realToday);
 let selectedDate = new Date(realToday);
 let selectedDateKey = todayKey;
+let calendarMonth = new Date(realToday.getFullYear(), realToday.getMonth(), 1, 12, 0, 0, 0);
+
+function csvCell(value){
+  const s=String(value ?? '');
+  return /[",\n]/.test(s) ? `"${s.replace(/"/g,'""')}"` : s;
+}
+function downloadBlob(filename, content, type){
+  const blob=new Blob([content],{type});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url; a.download=filename;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+function allRecordedDates(){
+  return [...new Set([
+    ...allEntries.map(e=>e.date),
+    ...weightEntries.map(w=>w.date)
+  ].filter(Boolean))].sort();
+}
+function exportCsv(){
+  const header=['日付','水分摂取量(mL)','外出','透析日','透析前体重(kg)','透析後体重(kg)','自宅体重(kg)','体重増加量(kg)','体重増加率(%)','間隔'];
+  const rows=[header];
+  allRecordedDates().forEach(key=>{
+    const d=parseKey(key);
+    const es=entriesFor(key);
+    const total=totalFor(key);
+    const outing=es.some(e=>e.outing===true || e.outing==='true') ? '○' : '';
+    const dialysis=isDialysisDate(d);
+    const w=weightFor(key) || {};
+    let gainKg='', gainPct='', interval='';
+    if(dialysis && w.pre){
+      const prevDate=previousDialysisDate(d);
+      const prev=prevDate ? weightFor(dateKey(prevDate)) : null;
+      if(prev && prev.post){
+        const pre=Number(w.pre), post=Number(prev.post);
+        gainKg=(pre-post).toFixed(1);
+        gainPct=((pre-post)/post*100).toFixed(1);
+        interval=intervalLabel(d);
+      }
+    }
+    rows.push([
+      key,total,outing,dialysis?'○':'',
+      w.pre?Number(w.pre).toFixed(1):'',
+      w.post?Number(w.post).toFixed(1):'',
+      w.home?Number(w.home).toFixed(1):'',
+      gainKg,gainPct,interval
+    ]);
+  });
+  const csv='\uFEFF'+rows.map(r=>r.map(csvCell).join(',')).join('\r\n');
+  downloadBlob(`MIZU-NAVI_${todayKey}.csv`,csv,'text/csv;charset=utf-8');
+}
+function exportBackup(){
+  const payload={
+    app:'MIZU-NAVI',
+    schemaVersion:1,
+    exportedAt:new Date().toISOString(),
+    settings,
+    entries:allEntries,
+    weights:weightEntries
+  };
+  downloadBlob(`MIZU-NAVI_backup_${todayKey}.json`,JSON.stringify(payload,null,2),'application/json;charset=utf-8');
+}
+
+function validBackup(data){
+  return data &&
+    data.app==='MIZU-NAVI' &&
+    Number(data.schemaVersion)===1 &&
+    data.settings && typeof data.settings==='object' &&
+    Array.isArray(data.entries) &&
+    Array.isArray(data.weights);
+}
+function importBackupFile(file){
+  if(!file) return;
+  const reader=new FileReader();
+  reader.onload=()=>{
+    try{
+      const data=JSON.parse(reader.result);
+      if(!validBackup(data)){
+        alert('MIZU-NAVIのバックアップファイルとして確認できませんでした。');
+        return;
+      }
+      const ok=confirm(
+        `バックアップを読み込みます。\n\n水分記録：${data.entries.length}件\n体重記録：${data.weights.length}日分\n\n現在この端末にある記録は、バックアップの内容に置き換わります。よろしいですか？`
+      );
+      if(!ok) return;
+      settings=data.settings;
+      allEntries=data.entries;
+      weightEntries=data.weights;
+      if(!settings.drinkAmounts) settings.drinkAmounts={};
+      if(!('dialysisSchedule' in settings)) settings.dialysisSchedule='';
+      save();
+      selectedDate=new Date(realToday);
+      selectedDateKey=todayKey;
+      calendarMonth=new Date(realToday.getFullYear(),realToday.getMonth(),1,12,0,0,0);
+      render();
+      alert('バックアップを読み込みました。');
+    }catch(e){
+      alert('バックアップを読み込めませんでした。ファイルを確認してください。');
+    }finally{
+      const input=document.getElementById('importBackupFile');
+      if(input) input.value='';
+    }
+  };
+  reader.onerror=()=>alert('ファイルを読み込めませんでした。');
+  reader.readAsText(file);
+}
 
 function save(){
   localStorage.setItem(LS.settings, JSON.stringify(settings));
   localStorage.setItem(LS.entries, JSON.stringify(allEntries));
+  localStorage.setItem(LS.weights, JSON.stringify(weightEntries));
 }
 
 function entriesFor(key){
@@ -460,6 +713,59 @@ function renderBars(){
   document.getElementById('limitLabel').textContent=settings.limit+'mLまでの目安';
 }
 
+
+function changeCalendarMonth(delta){
+  calendarMonth = new Date(calendarMonth.getFullYear(), calendarMonth.getMonth()+delta, 1, 12,0,0,0);
+  renderMonthCalendar();
+}
+function renderMonthCalendar(){
+  const title=document.getElementById('monthTitle');
+  const grid=document.getElementById('monthGrid');
+  if(!title || !grid) return;
+
+  const y=calendarMonth.getFullYear(), m=calendarMonth.getMonth();
+  title.textContent=`${y}年${m+1}月`;
+
+  const currentMonthStart=new Date(realToday.getFullYear(),realToday.getMonth(),1,12,0,0,0);
+  document.getElementById('nextMonth').disabled = calendarMonth >= currentMonthStart;
+
+  grid.innerHTML='';
+  const first=new Date(y,m,1,12,0,0,0);
+  const lastDay=new Date(y,m+1,0,12,0,0,0).getDate();
+
+  for(let i=0;i<first.getDay();i++){
+    const blank=document.createElement('div');
+    blank.className='month-day empty';
+    grid.appendChild(blank);
+  }
+
+  for(let day=1;day<=lastDay;day++){
+    const d=new Date(y,m,day,12,0,0,0);
+    const key=dateKey(d);
+    const entries=entriesFor(key);
+    const hasRecord=entries.length>0;
+    const amount=hasRecord ? totalFor(key) : null;
+    const isFuture=d>realToday;
+    const cell=document.createElement(isFuture?'div':'button');
+    if(!isFuture) cell.type='button';
+    cell.className='month-day'+(isFuture?' future':'')+(key===selectedDateKey?' selected':'');
+    const dialysis=isDialysisDate(d);
+    const weight=weightFor(key);
+    const pre=weight&&weight.pre?Number(weight.pre).toFixed(1):null;
+    const waterLine=hasRecord?`<div class="month-amount">${amount.toLocaleString()}mL</div>`:`<div class="month-none">${isFuture?'':'—'}</div>`;
+    const preLine=dialysis?`<div class="calendar-pre ${(!pre&&!isFuture)?'editable':''}">${pre?`前 ${pre}kg`:(isFuture?'透析日':'体重入力 ›')}</div>`:'';
+    cell.innerHTML=`<div class="month-date">${day}</div><div>${waterLine}${preLine}</div>`;
+    if(!isFuture){
+      cell.addEventListener('click',()=>{
+        selectedDate=new Date(d); selectedDateKey=key; render();
+        const target=document.getElementById('weightDayLabel');
+        if(target) setTimeout(()=>target.scrollIntoView({behavior:'smooth',block:'center'}),80);
+      });
+    }
+    grid.appendChild(cell);
+  }
+}
+
 function renderTrend(){
   const data=past7();
   const recentKeys=new Set(data.map(d=>d.key));
@@ -481,6 +787,91 @@ function renderTrend(){
   } else {
     text.textContent='データがたまると、外出した日の水分量を比べられます。';
   }
+}
+
+
+let weightSavedTimer=null;
+function showWeightSaved(){
+  const el=document.getElementById('weightSaved'); if(!el)return;
+  el.classList.add('show'); clearTimeout(weightSavedTimer);
+  weightSavedTimer=setTimeout(()=>el.classList.remove('show'),1600);
+}
+function scheduleInfo(){
+  const s=settings.dialysisSchedule||'';
+  if(s==='MWF_AM') return {days:[1,3,5], shift:'AM'};
+  if(s==='MWF_PM') return {days:[1,3,5], shift:'PM'};
+  if(s==='TTS') return {days:[2,4,6], shift:''};
+  return {days:[],shift:''};
+}
+function isDialysisDate(d){ return scheduleInfo().days.includes(d.getDay()); }
+function weightFor(key){ return weightEntries.find(w=>w.date===key) || null; }
+function upsertWeight(key, field, value){
+  let w=weightFor(key);
+  if(!w){ w={date:key,pre:null,post:null,home:null}; weightEntries.push(w); }
+  w[field] = value>0 ? Number(value) : null;
+  if(!w.pre && !w.post && !w.home) weightEntries = weightEntries.filter(x=>x.date!==key);
+  save(); renderWeight(); renderMonthCalendar(); showWeightSaved();
+}
+function previousDialysisDate(d){
+  if(!settings.dialysisSchedule) return null;
+  const x=new Date(d); x.setHours(12,0,0,0);
+  for(let i=1;i<=7;i++){ x.setDate(x.getDate()-1); if(isDialysisDate(x)) return new Date(x); }
+  return null;
+}
+function intervalTarget(d){
+  const prev=previousDialysisDate(d);
+  if(!prev) return null;
+  const days=Math.round((d-prev)/(24*60*60*1000));
+  return days===3 ? {label:'中2日',pct:5} : {label:'中1日',pct:3};
+}
+function renderDialysisBanner(){
+  const banner=document.getElementById('dialysisBanner');
+  const dialysis=isDialysisDate(selectedDate);
+  banner.classList.toggle('show',dialysis);
+  if(!dialysis) return;
+  document.getElementById('dialysisBannerText').textContent=isTodaySelected()?'今日は透析日です':'この日は透析日です';
+  document.getElementById('dialysisShiftText').textContent=scheduleInfo().shift;
+}
+function renderWeightHistory(){
+  const list=document.getElementById('weightHistoryList'); if(!list)return;
+  const rows=weightEntries.filter(w=>w.pre||w.post||w.home).slice().sort((a,b)=>b.date.localeCompare(a.date)).slice(0,6);
+  if(!rows.length){list.innerHTML='<div class="sub">記録すると、ここに最近の体重が表示されます。</div>';return;}
+  list.innerHTML=rows.map(w=>{
+    const d=parseKey(w.date), vals=[];
+    if(w.pre) vals.push(`透析前 <b>${Number(w.pre).toFixed(1)}kg</b>`);
+    if(w.post) vals.push(`透析後 <b>${Number(w.post).toFixed(1)}kg</b>`);
+    if(w.home) vals.push(`自宅 <b>${Number(w.home).toFixed(1)}kg</b>`);
+    return `<div class="weight-history-row"><div class="weight-history-date">${d.getMonth()+1}/${d.getDate()}</div><div class="weight-history-values">${vals.join('<br>')}</div></div>`;
+  }).join('');
+}
+function renderWeight(){
+  const dialysis=isDialysisDate(selectedDate);
+  const w=weightFor(selectedDateKey)||{};
+  document.getElementById('weightDayLabel').textContent=isTodaySelected()?'今日の体重':`${formatDate(selectedDate)}の体重`;
+  document.getElementById('weightModeText').textContent=dialysis
+    ? (isTodaySelected()?'透析前・透析後の測定値を記録できます':'この日の透析前・透析後体重を入力・修正できます')
+    : (isTodaySelected()?'自宅で測ったときだけ記録できます':'この日の自宅体重を入力・修正できます');
+  document.getElementById('dialysisWeightFields').style.display=dialysis?'grid':'none';
+  document.getElementById('homeWeightFields').style.display=dialysis?'none':'grid';
+  document.getElementById('preWeightInput').value=w.pre??'';
+  document.getElementById('postWeightInput').value=w.post??'';
+  document.getElementById('homeWeightInput').value=w.home??'';
+
+  const box=document.getElementById('weightResult');
+  box.classList.remove('show'); box.innerHTML='';
+  if(!dialysis || !w.pre) return;
+  const prevDate=previousDialysisDate(selectedDate);
+  const prev=prevDate?weightFor(dateKey(prevDate)):null;
+  if(!prev || !prev.post){
+    box.innerHTML='前回の透析後体重が記録されると、透析間の体重増加を確認できます。';
+    box.classList.add('show'); return;
+  }
+  const gain=Number(w.pre)-Number(prev.post);
+  const rate=(gain/Number(prev.post))*100;
+  const target=intervalTarget(selectedDate);
+  const sign=gain>=0?'+':'';
+  box.innerHTML=`前回透析後 <b>${Number(prev.post).toFixed(1)}kg</b> → 今回透析前 <b>${Number(w.pre).toFixed(1)}kg</b><br>透析間の変化 <strong>${sign}${gain.toFixed(1)}kg（${sign}${rate.toFixed(1)}%）</strong>${target?`<br>${target.label}の目安：${target.pct}%以内`:''}`;
+  box.classList.add('show');
 }
 
 function render(){
@@ -506,11 +897,13 @@ function render(){
   document.getElementById('dwTop').textContent=Number(settings.dw).toFixed(1);
   document.getElementById('dwInput').value=settings.dw;
   document.getElementById('limitInput').value=settings.limit;
+  document.getElementById('dialysisSchedule').value=settings.dialysisSchedule || '';
   document.querySelectorAll('.drink-amount-input').forEach(input=>{
     const id = input.dataset.drinkId;
     input.value = settings.drinkAmounts[id];
   });
-  renderLog(); renderBars(); renderTrend();
+  renderDialysisBanner(); renderWeight();
+  renderLog(); renderBars(); renderMonthCalendar(); renderTrend();
 }
 
 document.getElementById('customAdd').addEventListener('click',()=>{
@@ -536,6 +929,17 @@ document.getElementById('limitInput').addEventListener('change',e=>{
   settings.limit=Math.max(1,Number(e.target.value)||800); save(); render();
 });
 
+
+document.getElementById('prevMonth').addEventListener('click',()=>changeCalendarMonth(-1));
+document.getElementById('nextMonth').addEventListener('click',()=>changeCalendarMonth(1));
+
+document.getElementById('dialysisSchedule').addEventListener('change',e=>{
+  settings.dialysisSchedule=e.target.value; save(); render();
+});
+document.getElementById('preWeightInput').addEventListener('change',e=>upsertWeight(selectedDateKey,'pre',Number(e.target.value)));
+document.getElementById('postWeightInput').addEventListener('change',e=>upsertWeight(selectedDateKey,'post',Number(e.target.value)));
+document.getElementById('homeWeightInput').addEventListener('change',e=>upsertWeight(selectedDateKey,'home',Number(e.target.value)));
+
 document.getElementById('prevDay').addEventListener('click',()=>changeSelectedDate(-1));
 document.getElementById('nextDay').addEventListener('click',()=>changeSelectedDate(1));
 document.getElementById('todayBtn').addEventListener('click',goToday);
@@ -551,7 +955,16 @@ document.querySelectorAll('.drink-amount-input').forEach(input=>{
   });
 });
 
-renderGrid(); render();
+renderGrid(); document.getElementById('exportCsvBtn').addEventListener('click',exportCsv);
+document.getElementById('exportBackupBtn').addEventListener('click',exportBackup);
+document.getElementById('importBackupBtn').addEventListener('click',()=>{
+  document.getElementById('importBackupFile').click();
+});
+document.getElementById('importBackupFile').addEventListener('change',e=>{
+  importBackupFile(e.target.files && e.target.files[0]);
+});
+
+render();
 
 if('serviceWorker' in navigator){
   window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js'));
