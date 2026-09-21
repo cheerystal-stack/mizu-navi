@@ -1,4 +1,4 @@
-const CACHE='mizunavi-stable-v-next';
+const CACHE='mizunavi-stable-calendarfix-v1';
 const ASSETS=[
   './','./index.html','./manifest.json',
   './assets/icon-192.png','./assets/icon-512.png','./mascot.PNG',

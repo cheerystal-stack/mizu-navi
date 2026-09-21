@@ -240,7 +240,13 @@
       .drink-ml{font-size:11px}
       .remaining{font-size:57px}
     }
-  </style>
+  
+    /* Calendar width fix */
+    .month-weekdays,.month-grid{grid-template-columns:repeat(7,minmax(0,1fr))!important;width:100%;min-width:0}
+    .month-weekdays>* ,.month-grid>* ,.month-cell{min-width:0!important;max-width:100%;box-sizing:border-box}
+    .month-amount{min-width:0;max-width:100%;white-space:nowrap;font-size:clamp(9px,2.7vw,14px)}
+
+</style>
 </head>
 <body>
 <div class="app">
