@@ -1,4 +1,4 @@
-const CACHE='mizunavi-stable-mobile-calendar-v1';
+const CACHE='mizunavi-stable-mobile-text-v1';
 const ASSETS=[
   './','./index.html','./manifest.json',
   './assets/icon-192.png','./assets/icon-512.png','./mascot.PNG',
