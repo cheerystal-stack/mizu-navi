@@ -246,6 +246,14 @@
     .month-weekdays>* ,.month-grid>* ,.month-cell{min-width:0!important;max-width:100%;box-sizing:border-box}
     .month-amount{min-width:0;max-width:100%;white-space:nowrap;font-size:clamp(9px,2.7vw,14px)}
 
+
+    @media(max-width:480px){
+      .month-grid,.month-weekdays{column-gap:3px!important}
+      .month-cell{padding-left:4px!important;padding-right:4px!important}
+      .month-amount{font-size:12px!important;letter-spacing:-.2px}
+      .calendar-pre{font-size:8px!important;letter-spacing:-.25px;white-space:nowrap}
+    }
+
 </style>
 </head>
 <body>
